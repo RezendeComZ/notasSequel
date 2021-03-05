@@ -1,9 +1,14 @@
-/* Home / Notas */
 body {
   padding: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: rgb(48, 48, 48);
   color: white;
+}
+
+.notas {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
 }
 
 a {
@@ -25,18 +30,6 @@ a {
 
 .postit:hover {
   background-color: rgb(63, 56, 56);
-}
-
-.naoFixos {
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-}
-
-.fixos {
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
 }
 
 .pin1 {
@@ -102,7 +95,6 @@ textarea {
   padding: 5px;
   margin-top: 7px;
   border: 8px d1d1d1 solid;
-
 }
 
 input {

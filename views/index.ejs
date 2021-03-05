@@ -15,50 +15,45 @@
   <div class="notas">
 
     <% if (result.length > 0) { %>
-    <p>tem notas</p>
+    <% if (fixos.length > 0) {%>
+    <% fixos.forEach(nota => { %>
+    <div class="postit pin<%= nota.pin %>" id="<%=nota.nota_id%>">
+      <div class="botao">
+        <button data-doc="<%= nota._id %>" onclick="btApagar('<%=nota.nota_id%>')">X</button>
+      </div>
+      <div class="headPost">
+        <a href="/nota/<%= nota.nota_id %>"><%= nota.title %></a>
+      </div>
+      <div class="bodyPost">
+        <%= nota.body %>
+      </div>
+    </div>
+    <% }) %>
+    <% } %>
+
+
+
+
 
     <% if (fixos.length > 0) {%>
-    <div class="fixos">
-      <% fixos.forEach(nota => { %>
-      <div class="postit pin<%= nota.pin %>" id="<%=nota.nota_id%>">
-        <div class="botao">
-          <button data-doc="<%= nota._id %>" onclick="btApagar('<%=nota.nota_id%>')">X</button>
-        </div>
-        <div class="headPost">
-          <a href="/nota/<%= nota.nota_id %>"><%= nota.title %></a>
-        </div>
-        <div class="bodyPost">
-          <%= nota.body %>
-        </div>
+    <% naoFixos.forEach(nota => { %>
+    <div class="postit pin<%= nota.pin %>" id="<%=nota.nota_id%>">
+      <div class="botao">
+        <button data-doc="<%= nota._id %>" onclick="btApagar('<%=nota.nota_id%>')">X</button>
       </div>
-      <% }) %>
-      <% } %>
-
-
-
-      <% if (fixos.length > 0) {%>
-      <div class="naoFixos">
-        <% naoFixos.forEach(nota => { %>
-        <div class="postit pin<%= nota.pin %>" id="<%=nota.nota_id%>">
-          <div class="botao">
-            <button data-doc="<%= nota._id %>" onclick="btApagar('<%=nota.nota_id%>')">X</button>
-          </div>
-          <div class="headPost">
-            <a href="/nota/<%= nota.nota_id %>"><%= nota.title %></a>
-          </div>
-          <div class="bodyPost">
-            <%= nota.body %>
-          </div>
-        </div>
-        <% }) %>
-        <% } %>
-
-
+      <div class="headPost">
+        <a href="/nota/<%= nota.nota_id %>"><%= nota.title %></a>
       </div>
+      <div class="bodyPost">
+        <%= nota.body %>
+      </div>
+    </div>
+    <% }) %>
+    <% } %>
 
-      <% } else { %>
-      <p>Não tem notas</p>
-      <% } %>
+    <% } else { %>
+    <p>Não tem notas</p>
+    <% } %>
 </body>
 
 </html>
