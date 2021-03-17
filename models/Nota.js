@@ -28,4 +28,5 @@ module.exports = (sequelize, DataType) => {
     tableName: 'notas', // se não indicar ele vai buscar por "Notas", seguindo o nome do model e colocando um "S" no final
     // timestamps: false
   })
+  return Nota
 }
