@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title>Notas</title>
+</head>
+
+<body>
+  <div class="notas">
+
+    <% if (todas.length > 0) { %>
+    <% if (fixos.length > 0) {%>
+    <% fixos.forEach(nota => { %>
+    <div class="postit pin<%= nota.pin %>" id="<%=nota.nota_id%>">
+      <div class="botao">
+        <button data-doc="<%= nota._id %>" onclick="btApagar('<%=nota.nota_id%>')">X</button>
+      </div>
+      <div class="headPost">
+        <a href="/nota/<%= nota.nota_id %>"><%= nota.title %></a>
+      </div>
+      <div class="bodyPost">
+        <%= nota.body %>
+      </div>
+    </div>
+    <% }) %>
+    <% } %>
+
+
+
+
+
+    <% if (fixos.length > 0) {%>
+    <% naoFixos.forEach(nota => { %>
+    <div class="postit pin<%= nota.pin %>" id="<%=nota.nota_id%>">
+      <div class="botao">
+        <button data-doc="<%= nota._id %>" onclick="btApagar('<%=nota.nota_id%>')">X</button>
+      </div>
+      <div class="headPost">
+        <a href="/nota/<%= nota.nota_id %>"><%= nota.title %></a>
+      </div>
+      <div class="bodyPost">
+        <%= nota.body %>
+      </div>
+    </div>
+    <% }) %>
+    <% } %>
+
+    <% } else { %>
+    <p>Não tem notas</p>
+    <% } %>
+</body>
+
+</html>
