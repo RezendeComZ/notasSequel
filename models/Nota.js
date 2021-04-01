@@ -16,7 +16,7 @@ module.exports = (sequelize, DataType) => {
       type: DataType.BOOLEAN,
       defaultValue: false
     },
-    user_id: { // Falta referenciar como FK
+    user_id: {
       type: DataType.INTEGER,
       defaultValue: false
     },
