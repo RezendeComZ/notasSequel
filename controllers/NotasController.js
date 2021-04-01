@@ -13,7 +13,7 @@ const NotasController = {
         pin: false
       }
     });
-    // console.log(naoFixos)
+    console.log(todas)
     res.render('notas', { todas, fixos, naoFixos })
   },
   notFound: (req, res) => {
