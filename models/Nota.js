@@ -32,5 +32,12 @@ module.exports = (sequelize, DataType) => {
     tableName: 'notas', // se não indicar ele vai buscar por "Notas", seguindo o nome do model e colocando um "S" no final
     timestamps: false
   })
+
+  Nota.associate = (listaDeModelos) => {
+    Nota.belongsTo(listaDeModelos.Usuario, {
+      foreignKey: 'user_id',
+      as: 'user'
+    })
+  }
   return Nota
 }
