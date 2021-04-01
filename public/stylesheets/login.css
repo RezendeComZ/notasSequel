@@ -1,0 +1,38 @@
+body {
+  min-height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#loginForm {
+  /* background-color: gray; */
+  min-width:20vw;
+  padding: 15px;
+}
+
+
+.wide-font {
+  font-family: "Gill Sans", sans-serif;
+}
+
+.set-width {
+  width: 100%;
+}
+
+
+form {
+  text-align: center;
+}
+input {
+  border:none;
+  border-radius: 0px;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+button {
+  border:none;
+  border-radius: 0px;
+  width:100%;
+  margin-top: 8px;
+}
