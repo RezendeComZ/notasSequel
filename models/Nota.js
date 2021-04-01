@@ -16,6 +16,10 @@ module.exports = (sequelize, DataType) => {
       type: DataType.BOOLEAN,
       defaultValue: false
     },
+    user_id: { // Falta referenciar como FK
+      type: DataType.INTEGER,
+      defaultValue: false
+    },
       createdAt: {
       field: 'create_at',
       type: DataType.DATE,
