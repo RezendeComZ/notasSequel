@@ -1,25 +1,20 @@
 var express = require('express');
 var router = express.Router();
 const NotasController = require('../controllers/NotasController')
-const { check, validationResult, body } = require ('express-validator')
+const UsersController = require('../controllers/UsersController')
+const { check, validationResult, body } = require ('express-validator') // temp
 
 /* Home / Redirecionamento */
 router.get('/', (req, res) => {
   res.render('index')
 });
 /* Login */
-router.get('/login', (req, res) => {
-  res.render('login')
-});
-router.post('/login', [
+router.get('/login', UsersController.loginGet);
+
+router.post('/login', 
   check("email").isEmail(),
   check("password").isLength({min: 6, max: 150})
-], (req, res) => {
-  let { email, password} = req.body
-  console.log('Requisição post: ' + email + ' senha: ' + password)
-  console.log(validationResult(req))
-  res.redirect('notas')
-})
+, UsersController.loginPost)
 
 /* Lista de notas */
 router.get('/notas', NotasController.index);
