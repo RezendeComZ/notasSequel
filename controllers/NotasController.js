@@ -9,9 +9,14 @@ const NotasController = {
     //     required: true
     //   }
     // }) // db.query('select * from notas;' , // 'select * from notas WHERE nota_id = :idNota'
+
+    /*
+    Isso aqui em baixo (if (!req.session.usuario)...) pode ser um middleware importado dentro desse controller, só não coloquei pq quero dar a opção de poder compartilhar algumas notas, mais para a frente vejo como pode ser isso.
+     */
     if (!req.session.usuario) {
       res.redirect('/login')
     }
+
     const fixos = await Nota.findAll({
       where: {
         pin: true,
