@@ -8,7 +8,7 @@ const UsersController = {
     res.render('login')
   },
   loginPost: async (req, res) => {
-    let { email } = req.body
+    let { email, logado } = req.body
     const userDb = await Usuario.findOne({ where: { email }  })
     // console.log('dados do userdb: ' + userDb[0].email + ' pass da DB: ' + userDb[0].user_pass)
     // req.body.password = bcrypt.hashSync(req.body.password, 10)
@@ -21,12 +21,17 @@ const UsersController = {
     if (!validade) {
       return res.send('não passou')
     }
+    // Recurso de Cookie inacabado, ver middleware tbm
+    if(logado != undefined) {
+      res.cookie('logado', userDb.email, {maxAge: 152800})
+    }
     req.session.usuario = userDb
+    console.log(userDb)
     res.redirect('/notas')
   },
   // Logout:
   logout(req, res) {
-    req.session.usuario = ''
+    req.session.usuario = null
     res.send('Deslogado')
   },
   // Criar
