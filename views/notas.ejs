@@ -12,7 +12,7 @@
 <body>
   <div class="notas">
 
-    <% if (fixos.length > 0 || naoFixos.lenght > 0) { %>
+    <% if (fixos.length > 0 || naoFixos.length > 0) { %>
     <% if (fixos.length > 0) {%>
     <% fixos.forEach(nota => { %>
     <div class="postit pin<%= nota.pin %>" id="<%=nota.nota_id%>">
@@ -29,7 +29,7 @@
     <% }) %>
     <% } %>
 
-    <% if (fixos.length > 0) {%>
+    <% if (naoFixos.length > 0) {%>
     <% naoFixos.forEach(nota => { %>
     <div class="postit pin<%= nota.pin %>" id="<%=nota.nota_id%>">
       <div class="botao">
