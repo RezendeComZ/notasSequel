@@ -8,11 +8,9 @@ const UsersController = {
     res.render('login')
   },
   loginPost: async (req, res) => {
-    let { email, logado } = req.body
+    let { email } = req.body // tinha também 'logado' de cookie, mas removi temporariamente
     const userDb = await Usuario.findOne({ where: { email }  })
     // console.log('dados do userdb: ' + userDb[0].email + ' pass da DB: ' + userDb[0].user_pass)
-    // console.log('senha com hash: ', req.body.password = bcrypt.hashSync(req.body.password, 10))
-    // console.log('Requisição post: ' + email + ' senha: ' + req.body.password)
     // console.log('Express-validator: ', validationResult(req))
     let validade = false;
     if (userDb) {
