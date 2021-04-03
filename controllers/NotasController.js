@@ -9,6 +9,9 @@ const NotasController = {
     //     required: true
     //   }
     // }) // db.query('select * from notas;' , // 'select * from notas WHERE nota_id = :idNota'
+    if (!req.session.usuario) {
+      res.redirect('/login')
+    }
     const fixos = await Nota.findAll({
       where: {
         pin: true,
@@ -20,7 +23,6 @@ const NotasController = {
         pin: false
       }
     });
-    // console.log(todas[0].user.user_name)
     res.render('notas', { fixos, naoFixos })
   },
   notFound: (req, res) => {
