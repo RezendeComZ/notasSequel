@@ -11,7 +11,7 @@ const UsersController = {
     let { email, logado } = req.body
     const userDb = await Usuario.findOne({ where: { email }  })
     // console.log('dados do userdb: ' + userDb[0].email + ' pass da DB: ' + userDb[0].user_pass)
-    // req.body.password = bcrypt.hashSync(req.body.password, 10)
+    // console.log('senha com hash: ', req.body.password = bcrypt.hashSync(req.body.password, 10))
     // console.log('Requisição post: ' + email + ' senha: ' + req.body.password)
     // console.log('Express-validator: ', validationResult(req))
     let validade = false;
@@ -21,10 +21,10 @@ const UsersController = {
     if (!validade) {
       return res.send('não passou')
     }
-    // Recurso de Cookie inacabado, ver middleware tbm
-    if(logado != undefined) {
-      res.cookie('logado', userDb.email, {maxAge: 152800})
-    }
+    // Recurso de Cookie inacabado, ver middleware tbm // está quebrando o login por hora
+    // if(logado != undefined) {
+    //   res.cookie('logado', userDb.email, {maxAge: 152800})
+    // }
     req.session.usuario = userDb
     res.redirect('/notas')
   },
