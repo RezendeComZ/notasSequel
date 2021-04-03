@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 /* Login */
 router.get('/login', UsersController.loginGet);
 
-router.post('/login', 
+router.post('/autenticar', 
   check("email").isEmail(),
   check("password").isLength({min: 6, max: 150})
 , UsersController.loginPost)
