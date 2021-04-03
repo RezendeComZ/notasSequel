@@ -12,7 +12,7 @@ const NotasController = {
     const fixos = await Nota.findAll({
       where: {
         pin: true,
-        user_id: 1 // Deixar isso dinâmico futuramente // assim como o naoFixos
+        user_id: req.session.usuario.user_id
       }
     });
     const naoFixos = await Nota.findAll({

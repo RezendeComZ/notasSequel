@@ -18,11 +18,11 @@ const UsersController = {
     if (userDb) {
       validade = bcrypt.compareSync(req.body.password, userDb.user_pass)
     }
-    if (validade) {
-     res.redirect('/notas')
-    } else {
-      res.send('não passou')
+    if (!validade) {
+      return res.send('não passou')
     }
+    req.session.usuario = userDb
+    res.redirect('/notas')
   },
   // Criar
   registroGet(req, res) { // usando outro tipo de função só para variar
