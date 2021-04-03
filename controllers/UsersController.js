@@ -16,11 +16,10 @@ const UsersController = {
     // console.log('Express-validator: ', validationResult(req))
     let validade = false;
     if (userDb) {
-      console.log('entrou no if')
       validade = bcrypt.compareSync(req.body.password, userDb.user_pass)
     }
     if (validade) {
-     res.redirect('notas')
+     res.redirect('/notas')
     } else {
       res.send('não passou')
     }
