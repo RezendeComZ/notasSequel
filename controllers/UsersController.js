@@ -24,6 +24,11 @@ const UsersController = {
     req.session.usuario = userDb
     res.redirect('/notas')
   },
+  // Logout:
+  logout(req, res) {
+    req.session.usuario = ''
+    res.send('Deslogado')
+  },
   // Criar
   registroGet(req, res) { // usando outro tipo de função só para variar
     res.send('Página de registro')
