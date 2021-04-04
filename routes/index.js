@@ -21,7 +21,7 @@ router.get('/registro', UsersController.registroGet)
 
 router.post('/registrando', 
   body("email").isEmail().bail(),
-  body('text')
+  body('user_name')
     .not()
     .isEmpty().withMessage('O campo de nome não pode estar vazio')
     .trim().escape()
