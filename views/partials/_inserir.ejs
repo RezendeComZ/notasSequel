@@ -1,13 +1,13 @@
 <form action='/notas' method="POST" class="inserir">
   <div class="quickText">
-    <input type="text" id='headField' name="h" size="27" placeholder="Insira a nota aqui (Enter para enviar)"
+    <input type="text" id='title' name="title" size="27" placeholder="Insira a nota aqui (Enter para enviar)"
       onkeypress="deuEnter()">
     <input type="checkbox" id='fixo' name="pin" value="true"><label for="fixo">Fixar</label>
-    <button onclick="btEnviar()">Enviar</button> <!--  -->
+    <button id="btEnviar">Enviar</button> <!--  -->
     <p></p><a onclick="escondeInserir()">X</a></p>
   </div>
   <div class="textoLongo">
-    <textarea type="text" name="b" id="bodyField" cols="43" rows="5" placeholder="Ctrl/Cmd + Enter"
+    <textarea type="text" name="body" id="body" cols="43" rows="5" placeholder="Ctrl/Cmd + Enter"
       onkeydown="deuCtrlEnter()"></textarea> <!-- A alternativa a cols e rows é: style="width:250px;height:150px;" -->
   </div>
   <p id='sugesAtalho'>Utilize a tecla <span>˜`</span> como atalho.</p>
