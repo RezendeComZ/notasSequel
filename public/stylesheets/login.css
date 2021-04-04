@@ -1,4 +1,7 @@
 body {
+  padding: 10px;
+  background-color: rgb(48, 48, 48);
+  color: white;
   min-height: 95vh;
   display: flex;
   justify-content: center;
