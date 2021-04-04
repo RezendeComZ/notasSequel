@@ -14,7 +14,7 @@ const NotasController = {
     Isso aqui em baixo (if (!req.session.usuario)...) pode ser um middleware importado dentro desse controller, só não coloquei pq quero dar a opção de poder compartilhar algumas notas, mais para a frente vejo como pode ser isso.
      */
     if (!req.session.usuario) {
-      return res.redirect('/login')
+      return res.redirect('/users/login')
     }
 
     const fixos = await Nota.findAll({

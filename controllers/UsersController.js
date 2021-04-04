@@ -35,7 +35,7 @@ const UsersController = {
   // Logout:
   logout(req, res) {
     req.session.usuario = null
-    res.redirect('/login')
+    res.redirect('/users/login')
   },
   // Criar
   registroGet(req, res) { // usando outro tipo de função só para variar
@@ -50,7 +50,7 @@ const UsersController = {
     
     let { email, password, user_name } = req.body
     console.log('passou: ', email, password, user_name)
-    // res.redirect('/notas')
+    // res.redirect('/')
   }
 }
 
