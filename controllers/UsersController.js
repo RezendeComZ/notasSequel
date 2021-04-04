@@ -8,6 +8,12 @@ const UsersController = {
     res.render('login')
   },
   loginPost: async (req, res) => {
+    // Validator
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {     
+      return res.status(422).json({ errors: errors.array() });   
+    }
+
     let { email } = req.body // tinha também 'logado' de cookie, mas removi temporariamente
     const userDb = await Usuario.findOne({ where: { email }  })
     // console.log('dados do userdb: ' + userDb[0].email + ' pass da DB: ' + userDb[0].user_pass)
