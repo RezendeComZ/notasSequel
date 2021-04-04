@@ -34,6 +34,17 @@ const UsersController = {
   // Criar
   registroGet(req, res) { // usando outro tipo de função só para variar
     res.render('registro')
+  },
+  registroPost(req, res) {
+    // Validator
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {     
+      return res.status(422).json({ errors: errors.array() });   
+    }
+    
+    let { email, password, user_name } = req.body
+    console.log(email, password, user_name)
+    // res.redirect('/notas')
   }
 }
 
