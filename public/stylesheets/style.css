@@ -59,6 +59,16 @@ a {
   padding: 10px 0px;
 }
 
+#settings {
+  position: fixed;
+  top: 0px;
+  background-color: rgba(83, 83, 83, 0.5);
+  border-radius: 0 0 0 10px;
+  line-height: 0%;
+  padding: 10px;
+  right: 0;
+}
+
 footer {
   position: fixed;
   bottom: 0px;
