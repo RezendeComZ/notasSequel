@@ -33,7 +33,7 @@ const UsersController = {
   },
   // Criar
   registroGet(req, res) { // usando outro tipo de função só para variar
-    res.send('Página de registro')
+    res.render('registro')
   }
 }
 

@@ -16,6 +16,9 @@ router.post('/autenticar',
   check("password").isLength({min: 6, max: 150})
 , UsersController.loginPost)
 
+/* Registro */
+router.get('/registro', UsersController.registroGet)
+
 /* Logout */
 router.get('/logout', UsersController.logout);
 
