@@ -33,7 +33,9 @@ router.post('/registrando',
 router.get('/logout', UsersController.logout);
 
 /* Lista de notas */
-router.get('/notas', NotasController.index);
+router.get('/notas', (req, res) => {
+  res.redirect('/')
+});
 
 /* 404 */
 router.use(NotasController.notFound)
