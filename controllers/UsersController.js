@@ -41,15 +41,29 @@ const UsersController = {
   registroGet(req, res) { // usando outro tipo de função só para variar
     res.render('./login_registro/registro')
   },
-  registroPost(req, res) {
+  registroPost: async (req, res) => {
     // Validator
     const errors = validationResult(req);
     if (!errors.isEmpty()) {     
       return res.status(422).json({ errors: errors.array() });   
     }
     
-    let { email, password, user_name } = req.body
-    console.log('passou: ', email, password, user_name)
+    let { email, user_name } = req.body
+
+    const userDb = await Usuario.findOne({ where: { email }  })
+
+    console.log('situacao userDb: ', userDb)
+    if (userDb) {
+      return res.send('email já registrado')
+    }
+
+    const result = await Usuario.create({
+            user_name,
+            email,
+            user_pass: await bcrypt.hash(req.body.password, 10)
+    });
+  
+    res.send('conta criada')
     // res.redirect('/')
   }
 }
