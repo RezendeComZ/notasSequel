@@ -6,6 +6,8 @@ TODO:
 
 - Criação de notas
 - Alteração de nome e senha
+- Página 404
+- Página 404 de notas
 - APIs
 - Compartilhamento de notas específicas
 - Exportar notas em JSON/PDF
