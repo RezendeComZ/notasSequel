@@ -5,7 +5,7 @@ const { check, validationResult, body } = require ('express-validator')
 const UsersController = {
   // Login
   loginGet: (req, res) => {
-    res.render('login')
+    res.render('./login_registro/login')
   },
   loginPost: async (req, res) => {
     // Validator
@@ -35,11 +35,11 @@ const UsersController = {
   // Logout:
   logout(req, res) {
     req.session.usuario = null
-    res.redirect('login')
+    res.redirect('/login')
   },
   // Criar
   registroGet(req, res) { // usando outro tipo de função só para variar
-    res.render('registro')
+    res.render('./login_registro/registro')
   },
   registroPost(req, res) {
     // Validator
