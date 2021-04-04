@@ -35,7 +35,7 @@ const UsersController = {
   // Logout:
   logout(req, res) {
     req.session.usuario = null
-    res.send('Deslogado')
+    res.redirect('login')
   },
   // Criar
   registroGet(req, res) { // usando outro tipo de função só para variar
