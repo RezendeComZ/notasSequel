@@ -43,7 +43,7 @@ const UsersController = {
     }
     
     let { email, password, user_name } = req.body
-    console.log(email, password, user_name)
+    console.log('passou: ', email, password, user_name)
     // res.redirect('/notas')
   }
 }
