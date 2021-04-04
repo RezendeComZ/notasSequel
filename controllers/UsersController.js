@@ -30,7 +30,7 @@ const UsersController = {
     //   res.cookie('logado', userDb.email, {maxAge: 152800})
     // }
     req.session.usuario = userDb
-    res.redirect('/notas')
+    res.redirect('/')
   },
   // Logout:
   logout(req, res) {

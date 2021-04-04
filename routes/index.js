@@ -4,10 +4,9 @@ const NotasController = require('../controllers/NotasController')
 const UsersController = require('../controllers/UsersController')
 const { check, validationResult, body } = require ('express-validator') // temp
 
-/* Home / Redirecionamento */
-router.get('/', (req, res) => {
-  res.render('index')
-});
+/* Home / Notas */
+router.get('/', NotasController.index);
+
 /* Login */
 router.get('/login', UsersController.loginGet);
 
