@@ -8,10 +8,12 @@ const btApagar = (id) => {
 // Janela inserir:
 
 document.onkeyup = ev => {
-    if (ev.key == 'Dead' && ev.code == 'Backquote') mostraInserir();
+    if (ev.key == 'Dead' && ev.code == 'Backquote') mostraInserir('','');
   }
   
-const mostraInserir = () => {
+const mostraInserir = (tEdit, bEdit, isUpdate) => {
+  title.value = tEdit;
+  body.value = bEdit;
   document.querySelector('.inserir').style.display = 'block';
   document.getElementById("title").focus()
 }
@@ -43,3 +45,12 @@ btEnviar.addEventListener('click', (ev) => {
       escondeInserir()
     }
   })
+
+// Edit // WIP
+
+let postits = document.querySelectorAll('.postit')
+postits.forEach(post => {
+  post.addEventListener('click', () => {
+    mostraInserir(post.children[1].innerText, post.children[2].innerText)
+  })
+})
