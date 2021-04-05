@@ -10,6 +10,9 @@ router.get('/notas', (req, res) => {
   res.redirect('/')
 });
 
+/* Post */
+router.post('/', NotasController.post)
+
 // Desativado temporariamente até descobrir como não atrapalhar outros arquivos routes
 // /* 404 */
 // router.use(NotasController.notFound)

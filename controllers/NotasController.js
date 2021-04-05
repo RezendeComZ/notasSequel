@@ -1,4 +1,4 @@
-const { Nota, Usuario } = require('../models') // O index vai retonar cada atribudo, por isso desestruturar
+const { Nota } = require('../models') // O index vai retonar cada atribudo, por isso desestruturar
 
 const NotasController = {
   index: async (req, res) => {
@@ -30,6 +30,16 @@ const NotasController = {
       }
     });
     res.render('notas', { fixos, naoFixos })
+  },
+  post: async (req, res) => {
+    let {title, body, pin} = req.body
+    const result = await Nota.create({
+      title,
+      body,
+      pin,
+      user_id: req.session.usuario.user_id
+    });
+    res.redirect('/')
   },
   notFound: (req, res) => {
     res.status(404).render('404', { pagina: req.url})
