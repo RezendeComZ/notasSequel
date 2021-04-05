@@ -51,6 +51,8 @@ btEnviar.addEventListener('click', (ev) => {
 let postits = document.querySelectorAll('.postit')
 postits.forEach(post => {
   post.addEventListener('click', () => {
-    mostraInserir(post.children[1].innerText, post.children[2].innerText)
+    if (document.querySelector('.inserir').style.display == 'none') {
+      mostraInserir(post.children[1].innerText, post.children[2].innerText)
+    }
   })
 })
