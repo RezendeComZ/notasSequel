@@ -18,7 +18,10 @@ module.exports = (sequelize, DataType) => {
     },
     user_id: {
       type: DataType.INTEGER,
-      defaultValue: false
+    },
+    categoria_id: {
+      type: DataType.INTEGER,
+      alowNull: true // null é Home
     },
       createdAt: {
       field: 'create_at',
