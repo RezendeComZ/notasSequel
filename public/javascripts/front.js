@@ -1,5 +1,6 @@
 const title = document.getElementById('title')
 const body = document.getElementById('body')
+const inserir = document.querySelector('.inserir')
 
 const btApagar = (id) => {
     document.getElementById(id).style.display = 'none'  
@@ -14,7 +15,7 @@ document.onkeyup = ev => {
 const mostraInserir = (tEdit, bEdit, isUpdate) => {
   title.value = tEdit;
   body.value = bEdit;
-  document.querySelector('.inserir').style.display = 'block';
+  inserir.style.display = 'block';
   document.getElementById("title").focus()
 }
   
@@ -51,7 +52,8 @@ btEnviar.addEventListener('click', (ev) => {
 let postits = document.querySelectorAll('.postit')
 postits.forEach(post => {
   post.addEventListener('click', () => {
-    if (document.querySelector('.inserir').style.display == 'none') {
+    if (inserir.style.display == '' || inserir.style.display == 'none') {
+      console.log('entrou no if')
       mostraInserir(post.children[1].innerText, post.children[2].innerText)
     }
   })
