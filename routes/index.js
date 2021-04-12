@@ -13,6 +13,9 @@ router.get('/notas', (req, res) => {
 /* Post */
 router.post('/', NotasController.post)
 
+/* Update */
+router.post('/update', NotasController.update)
+
 // Desativado temporariamente até descobrir como não atrapalhar outros arquivos routes
 // /* 404 */
 // router.use(NotasController.notFound)

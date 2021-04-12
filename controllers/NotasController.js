@@ -41,6 +41,18 @@ const NotasController = {
     });
     res.redirect('/')
   },
+  update: async (req, res) => {
+    let {title, body, pin, nota_id} = req.body
+    const result = await Nota.update({
+      title,
+      body,
+      pin,
+      user_id: req.session.usuario.user_id
+    }, {
+      where: {nota_id: nota_id}
+    });
+    res.redirect('/')
+  },
   notFound: (req, res) => {
     res.status(404).render('404', { pagina: req.url})
   }
