@@ -57,7 +57,7 @@ let postits = document.querySelectorAll('.postit')
 postits.forEach(post => {
   post.addEventListener('click', () => {
     if (inserir.style.display == '' || inserir.style.display == 'none') {
-      mostraInserir(post.children[1].innerText, post.children[2].innerText, post.id)
+      mostraInserir(post.children[0].innerText, post.children[1].innerText, post.id)
     }
   })
 })
