@@ -5,7 +5,8 @@ App de gerenciamento de notas mas agora usando MySQL.
 TODO:
 
 - Apagar notas
-- Foco no campo de login ao abrir a página
+- Melhor gerenciamento de sessões usando token
+- Edição de nota com bug do botão fixo, na janela de inserir e na hora de enviar
 - Página no cadastro "email já existente"
 - Página de "usuario ou senha inválidos"
 - Alteração de nome e senha
