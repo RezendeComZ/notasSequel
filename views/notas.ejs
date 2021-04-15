@@ -18,9 +18,6 @@
     <% if (fixos.length > 0) {%>
     <% fixos.forEach(nota => { %>
     <div class="postit pin<%= nota.pin %>" id="<%=nota.nota_id%>">
-      <div class="botao">
-        <button data-doc="<%= nota._id %>" onclick="btApagar('<%=nota.nota_id%>')">X</button>
-      </div>
       <div class="headPost">
         <a href="/nota/<%= nota.nota_id %>"><%= nota.title %></a>
       </div>
