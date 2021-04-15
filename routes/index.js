@@ -16,6 +16,9 @@ router.post('/', NotasController.post)
 /* Update */
 router.post('/update', NotasController.update)
 
+/* Delete */
+router.post('/delete', NotasController.delete)
+
 // Desativado temporariamente até descobrir como não atrapalhar outros arquivos routes
 // /* 404 */
 // router.use(NotasController.notFound)

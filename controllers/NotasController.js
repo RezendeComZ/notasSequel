@@ -49,8 +49,22 @@ const NotasController = {
       pin,
       user_id: req.session.usuario.user_id
     }, {
-      where: {nota_id: nota_id}
+      where: {
+        nota_id: nota_id,
+        user_id: req.session.usuario.user_id
+      }
     });
+    res.redirect('/')
+  },
+  delete: async (req, res) => {
+    console.log('chegou no delete')
+    let { id } = req.params
+    const result = await Nota.destroy({
+      where: {
+        nota_id: id,
+        // user_id: req.session.usuario.user_id
+      }
+    })
     res.redirect('/')
   },
   notFound: (req, res) => {
